@@ -123,22 +123,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dashboard
+  name: notification
   labels:
-    app: dashboard
+    app: notification
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dashboard
+      app: notification
   template:
     metadata:
       labels:
-        app: dashboard
+        app: notification
     spec:
       containers:
-        - name: dashboard
-          image: username/dashboard:latest
+        - name: notification
+          image: username/notification:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -163,22 +163,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: notification
+  name: dashboard
   labels:
-    app: notification
+    app: dashboard
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: notification
+      app: dashboard
   template:
     metadata:
       labels:
-        app: notification
+        app: dashboard
     spec:
       containers:
-        - name: notification
-          image: username/notification:latest
+        - name: dashboard
+          image: username/dashboard:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -256,23 +256,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dashboard
-  labels:
-    app: dashboard
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    app: dashboard
-
-
----
-
-
-apiVersion: v1
-kind: Service
-metadata:
   name: notification
   labels:
     app: notification
@@ -282,4 +265,21 @@ spec:
       targetPort: 8080
   selector:
     app: notification
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboard
+  labels:
+    app: dashboard
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: dashboard
 

@@ -1,7 +1,7 @@
 # 
 
 ## Model
-www.msaez.io/#/courses/cna-full/46fbdd50-c481-11ed-ad36-1bfd28bd1d42/ddd-google-drive
+www.msaez.io/#/storming/sjoh
 
 ## Before Running Services
 ### Make sure there is a Kafka server running
@@ -23,8 +23,8 @@ See the README.md files inside the each microservices directory:
 - drive
 - indexer
 - video processing
-- dashboard
 - notification
+- dashboard
 
 
 ## Run API Gateway (Spring Gateway)
@@ -40,16 +40,16 @@ mvn spring-boot:run
 ```
 - indexer
 ```
- http :8088/indices id="id" fileid="fileid" keywords="keywords" 
+ http :8088/indices id="id" fileId="fileId" keywords="keywords" 
 ```
 - video processing
 ```
- http :8088/videos id="id" fileid="fileid" url="url" 
-```
-- dashboard
-```
+ http :8088/videos id="id" fileId="fileId" url="url" 
 ```
 - notification
+```
+```
+- dashboard
 ```
 ```
 

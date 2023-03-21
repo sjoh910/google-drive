@@ -16,7 +16,7 @@ public class Index {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long fileid;
+    private Long fileId;
 
     @ElementCollection
     private List<String> keywords;

@@ -8,6 +8,6 @@ import lombok.Data;
 public class FileIndexed extends AbstractEvent {
 
     private Long id;
-    private Long fileid;
+    private Long fileId;
     private List<String> keywords;
 }

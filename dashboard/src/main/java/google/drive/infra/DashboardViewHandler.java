@@ -28,9 +28,9 @@ public class DashboardViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             dashboard.setId(fileUploaded.getId());
             dashboard.setName(fileUploaded.getName());
+            dashboard.setSize(fileUploaded.getSize());
             dashboard.setPath(fileUploaded.getPath());
             dashboard.setType(fileUploaded.getType());
-            dashboard.setSize(fileUploaded.getSize());
             dashboard.setIsUploaded(true);
             // view 레파지 토리에 save
             dashboardRepository.save(dashboard);
@@ -47,7 +47,7 @@ public class DashboardViewHandler {
             if (!fileIndexed.validate()) return;
             // view 객체 조회
             Optional<Dashboard> dashboardOptional = dashboardRepository.findById(
-                fileIndexed.getFileid()
+                fileIndexed.getFileId()
             );
 
             if (dashboardOptional.isPresent()) {
@@ -70,7 +70,7 @@ public class DashboardViewHandler {
             if (!videoProcessed.validate()) return;
             // view 객체 조회
             Optional<Dashboard> dashboardOptional = dashboardRepository.findById(
-                videoProcessed.getFileid()
+                videoProcessed.getFileId()
             );
 
             if (dashboardOptional.isPresent()) {
